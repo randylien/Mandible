@@ -91,7 +91,7 @@ friends like radio stations, across any browser or device.
 - You should probably put production ready folders =assets/js= and =assets/js= under =.gitignore= so they aren't comitted to your repository.
 
 * Q&A
-- What is the heck are Javascript template? Reusable markup in a JavaScrip tag. See here [[http://ejohn.org/blog/javascript-micro-templating/][link]].
+- What is the heck are Javascript templates? Reusable markup in a JavaScrip tag. See here [[http://ejohn.org/blog/javascript-micro-templating/][link]].
 
 * Projects we use and recommend:
 - [[http://documentcloud.github.com/backbone/][backbone.js]] - MVC JavaScript framework that utilizes [[http://jquery.com/][jQuery]] and
