@@ -14,7 +14,7 @@
 #+XSLT:
 #+Style: <style> html,body{height: 100%;} body{padding: 5px 30px; h1,h2,h3 {font-family: arial, helvetica, sans-serif} </style>
 :                              .   ,
-:                              |_|    "'Cuase it talks a lot!"
+:                              |_|    "'Cause it talks a lot!"
 :                              (/ \)
 :                             |`='
 :                              L L    ...
