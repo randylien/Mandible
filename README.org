@@ -42,7 +42,7 @@ Mandible is a build and development toolset pulled from SocialGenius's
 Audiovroom is the popular HTML5 Facebook Mobile app that lets you play your
 friends like radio stations, across any browser or device.
 
-* Mandable
+* Mandible
 - is a collection of open-source and custom tools for organizing and prepping a web app for production.
 - is targetted toward web apps built on JavaScript MVC frameworks (we love [[http://documentcloud.github.com/backbone/][Backbone]]).
 - gives your web app a (customizable) folder structure for development and production.
@@ -53,7 +53,7 @@ friends like radio stations, across any browser or device.
 - can watch for CSS and template changes and concat them on the fly.
 - Includes a makeFile for concating JS, CSS, and concating templates in one easy step.
 
-* Mandable works by
+* Mandible works by
 - compressing and minifying your CSS with [[http://sass-lang.com/][Sass]].
 - compresses and minifying your JS with [[https://github.com/mishoo/UglifyJS][UglifyJS]].
 - externalizing your JavaScript templates and watching for changes with [[https://github.com/krunkosaurus/NodeInterval][NodeInterval]].
