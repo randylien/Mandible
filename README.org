@@ -63,7 +63,6 @@ friends like radio stations, across any browser or device.
 - You need to install Ruby (already installed on all macs).
 - You need to install [[http://sass-lang.com/][Sass]]. =sudo gem install sass=
 - You need to instal [[http://nodejs.org/][Node]]. (Compile it from [[http://nodejs.org/#download][here]].)
-* To use
 
 * To use
 ** For developers:
