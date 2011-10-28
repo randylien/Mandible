@@ -1,0 +1,216 @@
+#+TITLE:     Mandible: SocialGenius's AudioVroom Buildtool Documentation
+#+AUTHOR:    Mauvis Ledford
+#+EMAIL:     mauvis@brainswap.me
+#+DATE:      2011-09-22 Thu
+#+DESCRIPTION:
+#+OPTIONS: ^:{} num:nil
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+#+XSLT:
+#+Style: <style> html,body{height: 100%;} body{padding: 5px 30px; h1,h2,h3 {font-family: arial, helvetica, sans-serif} </style>
+:                              .   ,
+:                              |_|    MANDIBLE!!
+:                              (/ \)
+:                             |`='
+:                              L L    ...
+:                             J / ;._// |\
+:                            | |\ `|' ,;,|
+:                            _L L `'`'"
+:        _............._...-": j
+:       '.\_\_\_\_\_\_\.:`_`.-:|
+:         `-._:_:_:_:_:_:.-.-'||.===.
+:                        //||'.-'::||
+:                       // JJ    ||||    ___
+:                      //   LL   ||||---' -
+:                     ||__.""---''-|\ __  -
+:               ____.--||  __  -- __  ___.---
+:        __.---' __  - //--  ____.---'
+:  __.--' __. --   - __"_.--'
+: '   .--    __.----'
+:   __.--'
+: You know, for music.
+
+* Welcome
+
+Mandible is a build and development toolset pulled from SocialGenius's
+[[http://www.audiovroom.com/][Audiovroom]], open-sourced for your using pleasure.
+
+Audiovroom is the popular HTML5 Facebook Mobile app that lets you play your
+friends like radio stations, across any browser or device.
+
+* Mandable
+- is a collection of open-source and custom tools for organizing and prepping a web app for production.
+- is targetted toward web apps built on JavaScript MVC frameworks (we love [[http://documentcloud.github.com/backbone/][Backbone]]).
+- gives your web app a (customizable) folder structure for development and production.
+- concatinates and minifies your CSS and JS files.
+- allows you to create your own folder hierarchy of JavaScript templates.
+- creates and maintains your production assets (css, js, templates).
+- includes a copy of [[http://getskeleton.com/][Skeleton]] to get you started with a [[http://www.alistapart.com/articles/responsive-web-design/][responsive]] design.
+- can watch for CSS and template changes and concat them on the fly.
+- Includes a makeFile for concating JS, CSS, and concating templates in one easy step.
+
+* Mandable works by
+- compressing and minifying your CSS with [[http://sass-lang.com/][Sass]].
+- compresses and minifying your JS with [[https://github.com/mishoo/UglifyJS][UglifyJS]].
+- externalizing your JavaScript templates and watching for changes with [[https://github.com/krunkosaurus/NodeInterval][NodeInterval]].
+
+* To use
+** For developers:
+1. In terminal, run the two shell scripts in =/bin=. Keep them open while you do your development and all your CSS and templates changes are automatically merged into the product ready files.
+2. View your changes in /assets/index_uncompressed.html
+3. When you're done for the day, compress your JavaScript files by typing =make= in the root project folder. In case your bin scripts are off, this will automatically compress all CSS, JS, and rerender the templates - but only when necessary.
+4. Verify the production file at /assets/index.html
+** For build managers:
+- Simply type =make -B= to force all CSS, JS, and templates processes to run.
+
+* Explanation of application architecture
+: .
+: ├── /assets                        <-- "Production" folder container html and compressed assets.
+: │   ├── index.html                 <-- The production-ready file you want to view to launch this webapp.
+: │   └── index_uncompressed.html    <-- The uncompressed js prod version with templates, use this during daily development.
+: ├── /src                           <-- "Development" folder container html and uncompressed assets.
+: │   ├── index.html                 <-- Prod file without templates. Just used to generate real prod file. Never use it.
+: │   └── index_uncompressed.html    <-- Dev index file with raw js. Do your development here.
+: ├── /bin                           <-- Dev shell scripts.
+: │   ├── sass-watch.sh              <-- Run this in another terminal tab to watch for css changes. It will automatically concat and minify to assets/css
+: │   └── template-watch.sh          <-- Run this in another terminal tab to watch for template changes. All templates get concatinated into assets/*.html files.
+: ├── /vendor                        <-- Open-source shell scripts referenced by /bin scripts.
+: └── makefile                       <-- make utility for concatinating and minifying all js (and css and templates) to assets folder.
+
+* Aditional tips
+- You should probably put production ready folders =assets/js= and =assets/js= under =.gitignore= so they aren't comitted to your repository.
+
+* Projects we use and recommend:
+- [[http://documentcloud.github.com/backbone/][backbone.js]] - MVC JavaScript framework that utilizes [[http://jquery.com/][jQuery]] and
+  [[http://documentcloud.github.com/underscore/][underscore.js]].
+  Underscore's templating ability is especially useful.
+- [[http://getskeleton.com/][Skeleton]] - Grid-based CSS layout system to allow content to reflow to various
+  browser widths.
+- [[https://developers.facebook.com/docs/reference/javascript/][Facebook JavaScript SDK]] - The JavaScript SDK provides a rich set of
+  client-side functionality for accessing Facebook's server-side API calls.
+- [[http://www.schillmania.com/projects/soundmanager2/][Soundmanager 2]] - Cross-browser audio support.
+- [[http://cubiq.org/iscroll-4][iScroll 4]] - JS lib for native scrolling ability in subsections.
+- [[http://sass-lang.com/][Sass]] - Ruby Gem for organizing and minifying CSS.
+- [[https://github.com/krunkosaurus/NodeInterval][Node Interval]] - Node utility for managing and concatenating template files.
+
+* To Install
+- You need to install Ruby (already installed on all macs).
+- You need to install [[http://sass-lang.com/][Sass]]. =sudo gem install sass=
+- You need to instal [[http://nodejs.org/][Node]]. (Compile it for your system)
+
+* Explanation of folder architecture
+
+: .
+: └── html5                          <-- Main repo
+:     ├── index.html                 <-- Prod HTML page (generated).
+:     ├── index_uncompressed.html    <-- Prod HTML page (generated).
+:     ├── /bin                       <-- Shell scripts
+:     ├── /config                    <-- Various config files
+:     ├── /css                       <-- Compressed CSS
+:     ├── /js                        <-- Compressed JS
+:     ├── /images                    <-- Production images
+:     └── src
+:         ├── index.html             <-- "Template-less" HTML page (edit this file).
+:         ├── index_uncompressed.html<-- "Template-less" HTML page (edit this file).
+:         ├── /resources              <-- Photoshop templates and such
+:         ├── /js                     <-- Uncompressed JS files (compiles to html5/js/av.css)
+:         ├── /scss                   <-- Uncompressed CSS (compiles to html5/css/index.css)
+:         └── /templates              <-- JavaScript templates
+:
+
+1. Right now prod files are in root. One day we will have them in an =assets= folder.
+2. The files you edit every day are the two html files in =src/=.
+   =index.html= Has one concatenated js file that references =html5/js/av.js=
+   =index_uncompressed.html= Has all the separate js files for daily development.
+3. Neither of these files have templates in them. You edit these files and view them
+   via http://www3.audiovroom.com/html5/index.html and =http://www3.audiovroom.com/html5/index_uncompressed.html=.
+4. You must have bin/watch-templates.sh running to update the root index versions on change.
+5. Run =make= in the root folder anytime you want to concat all js files into =js/av.js=.
+
+* Explanation of global socialgenius object
+  The =socialgenius= window object is our app namespace and contains all app data.
+
+: socialgenius:{
+:   $: function(){},      <== Shortcut reference to document.getElementById
+:   appView: {},          <== Reference to instantiated AppView class.
+:   classes = {           <== Namespace for all custom Backbone classes.
+:     views : {},
+:     models : {},
+:     collections: {},
+:     controllers : {},
+:     Router: null
+:   },
+:   models: {},          <== Instantiated models.
+:   controllers: {},     <== Instantiated controllers.
+:   router: {},          <== Instantiated routers.
+:   helpers: {},         <== Reusable helper platform methods.
+:   currentView: {},     <== A reference to the current view so that we can destroy it.
+:   init: function(){}   <== Bootstrap code, FB calls this when ready.
+: }
+
+    Note: within any model, collection, or view, =sg= can be used instead of the full =socialgenius=.
+* Doing dev locally with Facebook Auth
+
+There are many ways to work on this application locally. The hardest part is
+that Facebook App ID is tied to the domain, so you much switch to use the
+local FB id when working locally (located in =js/appmodel.backbone.js=).
+
+** Best way to do dev: Use Charles Debugging Proxy
+
+This method has the benefit of pointing www3.audiovroom.com to your local
+environment so no need for FB App ID changes and no cross-domain issues.
+
+With an extra step you can also get iPhone / iPad to use your local machine
+when connecting to www3. The steps are as follows:
+
+*** Steps to proxy www3.audiovroomm.com to your localhost using Charles proxy
+
+1. Download and install [[http://www.charlesproxy.com/][Charles Proxy]].
+2. Follow the instructions on the [[https://github.com/socialgenius/Valkyrie/wiki/Setting-up-charles-rewrites][AudioVroom Github Wiki]]
+
+*** Steps to proxy  www3.audiovroom.com to your localhost on iPhone / iPad
+
+**** Setup iDevice
+
+1. Connect iDevice to the same Wifi point as your dev machine
+2. On your iDevice go to =Setting > General > Network > Wifi
+3. Select the blue arrow next to the wifi point you're connect to.
+4. Scroll down to =HTTP Proxy== section
+5. For =Server= put the ip address of your dev machine
+6. For =Port= put 8888 (standard Charles proxy port)
+7. Authentication off.
+8. Go to www3.audiovroom.com/html5/ on your iDevice and see if it triggers
+   in your Charles (You will have to approve it the first time.
+
+**** Adjust GoogleAppEngine
+
+1. Double-click the project in GoogleAppEngineLauncher and add the following flags:
+
+: --address=0.0.0.0 -a localhost
+
+[[http://blog.docuverse.com/2009/01/30/google-app-engine-launcher-options/#comment-985][Related link here]]
+
+** Second way: Chrome command line
+
+If you don't want to download Charles and go through all the steps (and you
+don't need to test on an iDevice, here's how to work locally while still
+authenticating with AudioVroom:
+
+Open Chrome via command line with these flags:
+
+Linux:
+        : chromium-browser --disable-web-security
+
+Max OSX:
+
+        : open Google\ Chrome.app --args --disable-web-security
+
+PC:
+
+        : chrome.exe --disable-web-security
+
