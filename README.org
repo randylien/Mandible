@@ -58,6 +58,13 @@ friends like radio stations, across any browser or device.
 - compresses and minifying your JS with [[https://github.com/mishoo/UglifyJS][UglifyJS]].
 - externalizing your JavaScript templates and watching for changes with [[https://github.com/krunkosaurus/NodeInterval][NodeInterval]].
 
+* Requirements
+  To use this tools you need to have the following installed:
+- You need to install Ruby (already installed on all macs).
+- You need to install [[http://sass-lang.com/][Sass]]. =sudo gem install sass=
+- You need to instal [[http://nodejs.org/][Node]]. (Compile it from [[http://nodejs.org/#download][here]].)
+* To use
+
 * To use
 ** For developers:
 1. In terminal, run the two shell scripts in =/bin=. Keep them open while you do your development and all your CSS and templates changes are automatically merged into the production ready files.
