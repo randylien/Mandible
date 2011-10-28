@@ -67,7 +67,7 @@ friends like radio stations, across any browser or device.
 * To use
 ** For developers:
 1. In terminal, run the two shell scripts in =/bin=. Keep them open while you do your development and all your CSS and templates changes are automatically merged into the production ready files.
-2. View your changes in =/assets/index_uncompressed.html=
+2. While working, view your changes in =/assets/index_uncompressed.html=
 3. When you're done for the day, compress your JavaScript files by typing =make= in the root project folder. In case your bin scripts are off, this will also automatically compress all CSS, JS, and rerender the templates - but only when necessary.
 4. Verify the production file at =/assets/index.html=.
 ** For build managers:
