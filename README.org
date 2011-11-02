@@ -46,6 +46,8 @@ Mandible is a build and development toolset pulled from SocialGenius's
 Audiovroom is the popular HTML5 Facebook Mobile app that lets you play your
 friends like radio stations, across any browser or device.
 
+See the full Facebook talk about responsive design, media queries, and cross-device HTML5 [[https://www.facebook.com/photo.php?v=10100722521328273][here]].
+
 * Mandible
 - is a collection of open-source and custom tools for organizing and prepping a web app for production.
 - is targetted toward web apps built on JavaScript MVC frameworks (we love [[http://documentcloud.github.com/backbone/][Backbone]]).
@@ -90,6 +92,14 @@ friends like radio stations, across any browser or device.
 : │   └── template-watch.sh          <-- Run this in another terminal tab to watch for template changes. All templates get concatinated into assets/*.html files.
 : ├── /vendor                        <-- Open-source shell scripts referenced by /bin scripts.
 : └── makefile                       <-- make utility for concatinating and minifying all js (and css and templates) to assets folder.
+
+* Additional tips
+- You should probably put production ready folders =assets/js= and =assets/js= under =.gitignore= so they aren't comitted to your repository (this is done for you.)
+- If you want just the SASS bits steal just the sass script in =/bin/watch-css.sh= and =src/scss/index.scss=.
+- If you want just the js compression features Steal the =makeFile= and the =vendor= folder.
+- If you want just the template concat / watch features clone [[https://github.com/krunkosaurus/NodeInterval][NodeInterval]].
+- Since Paul Irish is watching, use the [[http://html5boilerplate.com/mobile][HTML Mobile Boilerplate]]. We use it in our app but were too lazy to put it in the sample index.html. Lots of good tidbits in there like the ellipsis class.
+- We'll probably be open-sourcing our Backbone layer that fits on top of this in the future.
 * Q&A
 - What is the heck are Javascript templates? Reusable markup in a JavaScrip tag. See here [[http://ejohn.org/blog/javascript-micro-templating/][link]].
 
