@@ -46,7 +46,7 @@ Mandible is a build and development toolset pulled from SocialGenius's
 Audiovroom is the popular HTML5 Facebook Mobile app that lets you play your
 friends like radio stations, across any browser or device.
 
-* Mandable
+* Mandible
 - is a collection of open-source and custom tools for organizing and prepping a web app for production.
 - is targetted toward web apps built on JavaScript MVC frameworks (we love [[http://documentcloud.github.com/backbone/][Backbone]]).
 - gives your web app a (customizable) folder structure for development and production.
@@ -57,15 +57,21 @@ friends like radio stations, across any browser or device.
 - can watch for CSS and template changes and concat them on the fly.
 - Includes a makeFile for concating JS, CSS, and concating templates in one easy step.
 
-* Mandable works by
+* Mandible works by
 - compressing and minifying your CSS with [[http://sass-lang.com/][Sass]].
 - compresses and minifying your JS with [[https://github.com/mishoo/UglifyJS][UglifyJS]].
 - externalizing your JavaScript templates and watching for changes with [[https://github.com/krunkosaurus/NodeInterval][NodeInterval]].
 
+* Requirements
+  To use this tools you need to have the following installed:
+- You need to install Ruby (already installed on all macs).
+- You need to install [[http://sass-lang.com/][Sass]]. =sudo gem install sass=
+- You need to instal [[http://nodejs.org/][Node]]. (Compile it from [[http://nodejs.org/#download][here]].)
+
 * To use
 ** For developers:
 1. In terminal, run the two shell scripts in =/bin=. Keep them open while you do your development and all your CSS and templates changes are automatically merged into the production ready files.
-2. View your changes in =/assets/index_uncompressed.html=
+2. While working, view your changes in =/assets/index_uncompressed.html=
 3. When you're done for the day, compress your JavaScript files by typing =make= in the root project folder. In case your bin scripts are off, this will also automatically compress all CSS, JS, and rerender the templates - but only when necessary.
 4. Verify the production file at =/assets/index.html=.
 ** For build managers:
@@ -84,9 +90,8 @@ friends like radio stations, across any browser or device.
 : │   └── template-watch.sh          <-- Run this in another terminal tab to watch for template changes. All templates get concatinated into assets/*.html files.
 : ├── /vendor                        <-- Open-source shell scripts referenced by /bin scripts.
 : └── makefile                       <-- make utility for concatinating and minifying all js (and css and templates) to assets folder.
-
-* Aditional tips
-- You should probably put production ready folders =assets/js= and =assets/js= under =.gitignore= so they aren't comitted to your repository.
+* Q&A
+- What is the heck are Javascript templates? Reusable markup in a JavaScrip tag. See here [[http://ejohn.org/blog/javascript-micro-templating/][link]].
 
 * Projects we use and recommend:
 - [[http://documentcloud.github.com/backbone/][backbone.js]] - MVC JavaScript framework that utilizes [[http://jquery.com/][jQuery]] and
